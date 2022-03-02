@@ -108,3 +108,6 @@ div.flexbox p {
         width: 100%;
     }
 }
+.antwort{
+    visibility: hidden;
+}
