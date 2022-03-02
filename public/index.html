@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Ionic App</title>
+    <title>Lerntrainer</title>
 
     <base href="/" />
 
@@ -29,6 +29,7 @@
 <script src="/learntrainer/public/Frameworks/jquery-ui-le-frog/external/jquery/jquery.js"></script>
 <script src="/learntrainer/public/Frameworks/jquery-ui-le-frog/jquery-ui.min.js"></script>
     <script src="/learntrainer/public/JavaScript/Lernkasten.js"></script>
+    <script src="/learntrainer/public/JavaScript/Lernkarte.js"></script>
 
 </head>
 
@@ -66,7 +67,9 @@
 
 </div>
 </body>
-<script type="javascript">
+
+<script>
+  console.log('hier');
   $.get({
     url: "learntrainer/public/controller.php",
     data: {action:"getLernkaesten"},
@@ -77,4 +80,6 @@
   });
 
 </script>
+
+
 </html>
