@@ -43,9 +43,6 @@
 </div>
 
 <div class="topnav">
-  <a href="#">Link</a>
-  <a href="#">Link</a>
-  <a href="#">Link</a>
   <a href="#" style="float:right; max-width: 14%"><img src="/learntrainer/public/assets/icon/settings_icon.png" alt="Einstellungen" style="max-height: 100%; max-width: 100%"></a>
 </div>
 
@@ -74,7 +71,9 @@
     url: "learntrainer/public/controller.php",
     data: {action:"getLernkaesten"},
     success: function (data) {
-      var lernkaesten= new Lernkasten(data);
+      console.log(data);
+      var daten = JSON.parse(data);
+      var lernkaesten= new Lernkasten(daten.result);
       lernkaesten.erstelleAnsicht();
     }
   });
