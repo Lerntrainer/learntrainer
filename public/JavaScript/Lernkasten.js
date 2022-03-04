@@ -1,5 +1,5 @@
 class Lernkasten {
-    _lernkarten = {};
+    static lernkarten
 
     get lernkastenElement() {
         return this._lernkastenElement;
@@ -26,9 +26,10 @@ class Lernkasten {
         this._lernkasten = lernkasten;
         this._lernkastenElement = $(".lernkasten");
     }
-
+    static getLernkarten(){
+        return this.lernkarten;
+    }
     erstelleAnsicht() {
-        console.info(this._lernkasten);
         for (var i = 0; i <this._lernkasten.length; i++) {
             var newP = document.createElement("p");
             var button =    $(document.createElement('button')).prop({
@@ -36,22 +37,25 @@ class Lernkasten {
                 innerHTML: this._lernkasten[i],
                 class: 'ui-button ui-corner-all ui-widget',
             });
+            var Lernkasten = this;
             button[0].addEventListener("click",function(){
-                console.info(button[0].innerHTML);
                 $.get({
                     url: "learntrainer/public/controller.php",
                     data: {action:"getLernkasten",
                             filename:button[0].innerHTML},
                     success: function (data) {
+                        console.info(data);
                         var daten = JSON.parse(data);
                         console.log(daten.result);
+                        var lernkarte = [];
                         for (var j = 1; j < daten.result.length; j++) {
-                            this._lernkarten.j = new Lernkarte(daten.result[j][0],daten.result[j][1],j);
+                           lernkarte[j] = new Lernkarte(daten.result[j]['Frage'],daten.result[j]['Antwort'],j);
                         }
-                        console.info(this._lernkarten);
-                        $('<div />').html(this._lernkarten[0].erstelleAnsicht()).dialog({
-                            minHeight:300,
-                            minWidth:300,
+                        console.info(lernkarte);
+                        Lernkasten.lernkarten = lernkarte;
+                        $('<div />').html(lernkarte[1].erstelleAnsicht(lernkarte)).dialog({
+                            minHeight:600,
+                            minWidth:600,
                             resizable: true,
                             draggable:true,
                             title:button[0].innerHTML,

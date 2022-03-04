@@ -30,11 +30,11 @@ switch ($_GET['action']){
         $handle = fopen ($verzeichnis.$_GET['filename'], 'rb');
         $result = [];
         while (($csv_array = fgetcsv ($handle,0,';')) !== FALSE ) {
-
             // Ausgeben des Arrays $csv_array
-            foreach ($csv_array as $key=>$value) {
-                $result[$key] = $value;
-            }
+            $result[] = [
+                'Frage' => $csv_array[0],
+                'Antwort' => $csv_array[1],
+            ];
         }
         fclose($handle);
         echo json_encode(['result' => $result]);

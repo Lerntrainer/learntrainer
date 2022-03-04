@@ -82,6 +82,23 @@
     }
   });
 
+  function showAnswer(){
+    document.getElementById('answer').style.visibility = 'visible';
+    document.getElementById('btn_showAnswer').style.display = 'none';
+    document.getElementById('btn_rightAnswer').style.visibility = 'visible';
+    document.getElementById('btn_falseAnswer').style.visibility = 'visible';
+  }
+  function rightAnswer(){
+    var lernkarten = Lernkasten.getLernkarten();
+    var lernkarten2 = document.getElementById('div_lernkarten').getAttribute('lernkarten')
+    console.log(lernkarten);
+    console.log(lernkarten2);
+  }
+  function falseAnswer(){
+    var lernkarten = Lernkasten.getLernkarten();
+    console.log(lernkarten);
+  }
+
 </script>
 
 

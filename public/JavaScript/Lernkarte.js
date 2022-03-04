@@ -29,11 +29,15 @@ class Lernkarte {
         this._antwort = antwort;
         this._stelle = stelle;
     }
-    erstelleAnsicht(){
+    erstelleAnsicht(lernkarten){
         var ansicht = '<div>' +
             '<h2>' +this._frage+ '</h2>' +
-            '<h3 class="antwort" id="' + this._stelle+ '">' +this._antwort+ '</h3>' +
-            '<button onclick="getElementById(' + this._stelle+ ').style.visibility = \'visible\'">Anwort zeigen</button>' +
+            '<h3 class="antwort" id="answer">' +this._antwort+ '</h3>' +
+            '<button onclick="showAnswer()" id="btn_showAnswer">Anwort zeigen</button>' +
+            '<button onclick="rightAnswer()" id="btn_rightAnswer" style="visibility:hidden">richtige Antwort</button>' +
+            '<button onclick="falseAnswer()" id="btn_falseAnswer" style="visibility:hidden">falsche Antwort</button>' +
+            '<div id="div_lernkarten" lernkarten='+lernkarten+' style="visibility:hidden"></div>' +
             '<\div>'
+        return ansicht;
     }
 }
