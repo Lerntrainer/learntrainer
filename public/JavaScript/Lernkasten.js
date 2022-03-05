@@ -59,6 +59,9 @@ class Lernkasten {
                             resizable: true,
                             draggable:true,
                             title:button[0].innerHTML,
+                        }).ready(function (){
+                            console.log($('#frage1')[0]);
+                            $('#frage1')[0].show();
                         });
                     }
                 });
