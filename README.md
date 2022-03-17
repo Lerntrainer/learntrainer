@@ -9,10 +9,13 @@ Von: Alex Gebel, Franziska Lier, Justin Malletzky und Marko Jahn
 ### Voraussetzungen
 
 Node.js
+
 Herunterladen und installieren:
+
 https://nodejs.org/en/download/
 
 Ionic CLI
+
 In der Kommandozeile ausführen:
 
 `npm install -g @ionic/cli`
